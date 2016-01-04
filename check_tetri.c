@@ -26,8 +26,11 @@ int		ft_check_line(char *tab)
 	return (0);
 }
 
-int		ft_check_coll(char **tab, int x, int y, int size_map)
+int		ft_check_coll(char **tab, int x, int size_map)
 {
+    int y;
+    
+    y = 0;
 	while (y < size_map)
 	{
 		if (tab[y][x] == '#')

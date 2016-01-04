@@ -37,6 +37,7 @@ void	ft_print_map(char **map, int size_map)
 		write(1, "\n", 1);
 		y++;
 	}
+    free(map);
 }
 
 void		print_tab_3d(char ***tab, int count)
