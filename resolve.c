@@ -17,7 +17,7 @@
 void	ft_print_map(char **map, int size_map);
 int		ft_check_line(char *tab);
 int		ft_check_coll(char **tab, int x, int size_map);
-char	**ft_full_map_point(char **map, int size);
+void	ft_full_map_point(char **map, int size);
 
 char	**ft_creat_map(int size_map)
 {
@@ -31,25 +31,7 @@ char	**ft_creat_map(int size_map)
 		map[y] = (char *)malloc(size_map *sizeof(char));
 		y++;
 	}
-	return (ft_full_map_point(map, size_map));
-}
-
-char	**ft_full_map_point(char **map, int size)
-{
-	int y;
-	int x;
-	
-	y = 0;
-	while (y < size)
-	{
-		x = 0;
-		while (x < size)
-		{
-			map[y][x] = '.';
-			x++;
-		}
-		y++;
-	}
+	ft_full_map_point(map, size_map)
 	return (map);
 }
 
@@ -68,6 +50,7 @@ char	**ft_cpy_tetri(char **map, char **tab, int y, int x)
 		{
 			if (tab[y][x])
 				map[i][j] = tab[y][x];
+			else 
 			j++;
 			x++;
 			count++;
@@ -84,13 +67,14 @@ char 	**ft_print_tetri_map(char **map, char **tab, int size_map)
 {
 	int y;
 	int x;
-	
+
 	y = 0;
 	while (ft_check_line(tab[y]) != 1)
 		y++;
 	x = 0;
 	while (ft_check_coll(tab, x, size_map) != 1)
 		x++;
+	
 	return (ft_cpy_tetri(map, tab, y, x));
 }
 
@@ -106,3 +90,4 @@ void	ft_resolve(char *** tab, int size_map, int nb_tetri)
         z++;
     }
 }
+

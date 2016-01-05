@@ -103,7 +103,6 @@ void		ft_error(char *argv)
 	char	buff[BUFF_SIZE + 1];
 	int		file_descriptor;
 	int		read_result;
-	int		tetri_nomber;
 
 	if ((file_descriptor = open(argv, O_RDONLY)) == -1)
 		ft_error_exit("error");
