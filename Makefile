@@ -6,7 +6,7 @@
 #    By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 15:26:59 by gahubaul          #+#    #+#              #
-#    Updated: 2016/01/06 18:27:07 by rlemarch         ###   ########.fr        #
+#    Updated: 2016/01/06 18:30:52 by rlemarch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=fillit
 
 FLAG=-Wall -Wextra -Werror
 
-SRC= resolve.c 1_main2.c error_buff.c print.c resolver.c tetri.c \
+SRC= 1_main2.c error_buff.c line_column.c malloc.c print.c resolver.c \
 
 OBJ=$(SRC:.c=.o)
 
