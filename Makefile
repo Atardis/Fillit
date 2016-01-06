@@ -6,7 +6,7 @@
 #    By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/10 15:26:59 by gahubaul          #+#    #+#              #
-#    Updated: 2016/01/06 18:36:25 by rlemarch         ###   ########.fr        #
+#    Updated: 2016/01/06 18:39:05 by rlemarch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re $(NAME)
+.PHONY: all clean fclean re
