@@ -115,15 +115,14 @@ int		x_y_map(char **map, char **tetri, int size_map, char y_x)
 		x_map = 0;
 		while (x_map < size_map && index == 0)
 		{
-			if ((check_map_tetri(map, tetri, y_map, x_map, size_map)) == 1)
+			if ((verif_position(map, tetri, y_map, x_map, size_map)) == 1)
 			{
-				index++;
-				if (y_x == 'y' && index != 0)
+				if (y_x == 'y')
 					return (y_map);
-				if (y_x == 'x' && index != 0)
+				if (y_x == 'x')
 					return (x_map);
 			}
-			if ((check_map_tetri(map, tetri, y_map, x_map, size_map)) == 0)
+			else
 				x_map++;
 		}
 		y_map++;
@@ -131,7 +130,7 @@ int		x_y_map(char **map, char **tetri, int size_map, char y_x)
 	return (666);
 }
 
-int		check_map_tetri(char **map, char **tetri, int y_map, int x_map, int size_map)
+int		verif_position(char **map, char **tetri, int y_map, int x_map, int size_map)
 {
 	int y_tetri;
 	int x_tetri;
@@ -144,8 +143,8 @@ int		check_map_tetri(char **map, char **tetri, int y_map, int x_map, int size_ma
 		x_tetri = ft_x_tetri(tetri);
 		while (x_map < size_map && x_tetri < 4)
 		{
-			if (map[y_map][x_map] != '.' && tetri[y_tetri][x_tetri] != '.')
-				return (0);
+			if (map[y_map][x_map] == '.' && (tetri[y_tetri][x_tetri] != '.'))
+				map[y_map][x_map] = tetri[y_tetri][x_tetri];
 			x_map++;
 			x_tetri++;
 			index++;
@@ -154,5 +153,34 @@ int		check_map_tetri(char **map, char **tetri, int y_map, int x_map, int size_ma
 		y_map++;
 		y_tetri++;
 	}
-	return (1);
+	if (verif_position_count(map, (what_tetri(tetri) + 65), size_map) == 1)
+		index = 0;
+	delete_tetri(map, what_tetri(tetri), size_map);
+	if (index == 0)
+		return (1);
+	return (0);
+}
+
+int		verif_position_count(char **map, char char_tetri, int size_map)
+{
+	int y_map;
+	int x_map;
+	int count_char;
+
+	y_map = 0;
+	count_char = 0;
+	while (y_map < size_map)
+	{
+		x_map = 0;
+		while (x_map < size_map)
+		{
+			if (map[y_map][x_map] == char_tetri)
+				count_char++;
+			x_map++;
+		}
+		y_map++;
+	}
+	if (count_char == 4)
+		return (1);
+	return (0);
 }

@@ -18,7 +18,7 @@
 #include "../../Libft/libft.h"
 
 void		ft_print_map(char **map, int size_map);
-void		search_tetri(char ***tetri, char **map, int nb_tetri, int size_map);
+void		search_tetri(char ***tetri, char **map, int n_tetri, int maxtetri, int size_map);
 void		ft_cpy_tetri_map(char **tetri, char **map, int size_map);
 void		ft_print_map_test(char **map, int size_map);
 void		ft_cpy_tetri(char **map, char **tab, int y, int x, int size_map);
@@ -50,3 +50,8 @@ int			ft_tetri_test_map(char **tetri, char **map, int y_tetri, int x_tetri, int 
 int			what_tetri(char **tetri);
 int			x_y_map(char **map, char **tetri, int size_map, char y_x);
 int			check_map_tetri(char **map, char **tetri, int y_map, int x_map, int size_map);
+
+int		verif_position_count(char **map, char char_tetri, int size_map);
+int		verif_position(char **map, char **tetri, int y_map, int x_map, int size_map);
+
+

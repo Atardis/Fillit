@@ -88,7 +88,7 @@ void		ft_error(char *argv)
 		ft_error_exit("error5");
 	if (ft_tab_buff(buff) == NULL)
 		ft_error_exit("error6");
-    ft_resolve(ft_tab_buff(buff), count_tetri(buff), 5, 0);
+    ft_resolve(ft_tab_buff(buff), count_tetri(buff), 6, 0);
 }
 
 int			main(int argc, char **argv)
