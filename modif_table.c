@@ -26,6 +26,7 @@ void	ft_full_map_point(char **map, int size)
 			map[y][x] = '.';
 			x++;
 		}
+		map[y][x] = '\0';
 		y++;
 	}
 }
@@ -57,46 +58,6 @@ int		add_tetri(char **map, int ym, int xm, char **tetri)
 		}
 	}
 	return (1);
-}
-
-int		ft_x_tetri_origin(char **tetri)
-{
-	int y_tetri;
-	int x_tetri;
-
-	y_tetri = 0;
-	while (y_tetri < 4)
-	{
-		x_tetri = 0;
-		while (x_tetri < 4)
-		{
-			if (tetri[y_tetri][x_tetri] == TETRI)
-				return (x_tetri);
-			x_tetri++;
-		}
-		y_tetri++;
-	}
-	return (666);
-}
-
-int		ft_y_tetri_origin(char **tetri)
-{
-	int y_tetri;
-	int x_tetri;
-
-	y_tetri = 0;
-	while (y_tetri < 4)
-	{
-		x_tetri = 0;
-		while (x_tetri < 4)
-		{
-			if (tetri[y_tetri][x_tetri] == TETRI)
-				return (y_tetri);
-			x_tetri++;
-		}
-		y_tetri++;
-	}
-	return (666);
 }
 
 int		what_is_tetri(char **tetri)

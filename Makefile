@@ -26,11 +26,13 @@ SRC= 	check.c\
 
 OBJ=$(SRC:.c=.o)
 
-$(NAME): 
-	gcc $(FLAG) -c $(SRC)
+all: $(NAME)
+
+$(NAME): $(OBJ)
 	gcc $(OBJ) -o $(NAME)
 
-all: $(NAME)
+%.o: %.c
+	@gcc $(FLAG) -o $@ -c $^
 
 clean:
 	rm -f $(OBJ)

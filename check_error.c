@@ -25,7 +25,7 @@ int			ft_count_sharp(char *buff)
 			j++;
 		i++;
 	}
-	if ((j % 4) == 0)
+	if ((j % 4) != 0)
 		return (0);
 	return (1);
 }
@@ -79,11 +79,11 @@ int			ft_count_char_sharp_line(char *buff)
 {
 	int		i;
 	int		charac;
-	int		new;
+	int		line;
 	int		sharp;
 
 	i = -1;
-	new = 0;
+	line = 0;
 	sharp = 0;
 	while (buff[++i])
 	{
@@ -97,8 +97,8 @@ int			ft_count_char_sharp_line(char *buff)
 			i++;
 			charac++;
 		}
-		new++;
-		if (charac != 4 && (new % 4) != 0 && sharp % 4 != 0)
+		line++;
+		if (charac != 4 && (line % 4) != 0 && sharp % 4 != 0)
 			return (0);
 	}
 	return (1);

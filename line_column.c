@@ -40,32 +40,42 @@ int		check_column(char **column, int x)
 	return (0);
 }
 
-int		ft_y_tetri(char **tetri)
+int		ft_x_tetri_origin(char **tetri)
 {
-	int y;
+	int y_tetri;
+	int x_tetri;
 
-	y = 0;
-	while (y < 4)
+	y_tetri = 0;
+	while (y_tetri < 4)
 	{
-		if (check_line(tetri[y]) == 1)
-			return (y);
-		else
-			y++;
+		x_tetri = 0;
+		while (x_tetri < 4)
+		{
+			if (tetri[y_tetri][x_tetri] == TETRI)
+				return (x_tetri);
+			x_tetri++;
+		}
+		y_tetri++;
 	}
 	return (666);
 }
 
-int		ft_x_tetri(char **tetri)
+int		ft_y_tetri_origin(char **tetri)
 {
-	int x;
+	int y_tetri;
+	int x_tetri;
 
-	x = 0;
-	while (x < 4)
+	y_tetri = 0;
+	while (y_tetri < 4)
 	{
-		if (check_column(tetri, x) == 1)
-			return (x);
-		else
-			x++;
+		x_tetri = 0;
+		while (x_tetri < 4)
+		{
+			if (tetri[y_tetri][x_tetri] == TETRI)
+				return (y_tetri);
+			x_tetri++;
+		}
+		y_tetri++;
 	}
 	return (666);
 }

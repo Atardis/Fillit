@@ -41,19 +41,19 @@ void		ft_error(char *argv)
 		ft_error_exit("error");
 	buff[read_result] = '\0';
 	if (close(file_descriptor) == -1)
-		ft_error_exit("error1");
+		ft_error_exit("error");
 	if (ft_count_enter(buff) == 0)
-		ft_error_exit("error2");
+		ft_error_exit("error");
 	if (ft_count_char_tetri(buff) == 0)
-		ft_error_exit("error3");
-	if (ft_count_sharp(buff) == 1)
-		ft_error_exit("error4");
+		ft_error_exit("error");
+	if (ft_count_sharp(buff) == 0)
+		ft_error_exit("error");
 	if (ft_count_char_sharp_line(buff) == 0)
-		ft_error_exit("error5");
+		ft_error_exit("error");
 	if (ft_check_block(buff) < 6)
-		ft_error_exit("error6");
+		ft_error_exit("error");
 	if (ft_tab_buff(buff) == NULL)
-		ft_error_exit("error7");
+		ft_error_exit("error");
 	ft_resolve(ft_tab_buff(buff), count_tetri(buff));
 }
 

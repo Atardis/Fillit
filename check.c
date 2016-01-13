@@ -31,6 +31,8 @@ int			ft_check_block(char *buff)
 			i++;
 		}
 	}
+	if (count_tetri(buff) < 1 || count_tetri(buff) > 26)
+		return (0);
 	return (j);
 }
 

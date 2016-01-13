@@ -21,7 +21,7 @@ char		**ft_creat_map(int size_map)
 	map = (char **)malloc(size_map * sizeof(char *));
 	while (y < size_map)
 	{
-		map[y] = (char *)malloc(size_map * sizeof(char));
+		map[y] = (char *)malloc(size_map * sizeof(char) + 1);
 		y++;
 	}
 	ft_full_map_point(map, size_map);
@@ -112,10 +112,10 @@ void		replace_sharp(char ***tab, int count)
 
 int			size_map(char **map)
 {
-	int		y_map;
+	int		x_map;
 
-	y_map = 0;
-	while (map[y_map])
-		y_map++;
-	return (y_map - 1);
+	x_map = 0;
+	while (map[0][x_map] != '\0')
+		x_map++;
+	return (x_map);
 }

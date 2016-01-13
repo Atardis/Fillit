@@ -27,17 +27,17 @@ void	recursive(char ***tetri, char **map, int maxtetri, int n_tetri)
 	int y_map;
 
 	y_map = -1;
-	while (++y_map < size_map(map))
+	while (++y_map < SIZE)
 	{
 		x_map = -1;
-		while (++x_map < size_map(map))
+		while (++x_map < SIZE)
 		{
 			if (add_tetri(map, y_map, x_map, tetri[n_tetri]))
 			{
 				if ((n_tetri + 1) != maxtetri)
 					recursive(tetri, map, maxtetri, (n_tetri + 1));
 				else
-					ft_print_map(map, size_map(map));
+					ft_print_map(map, SIZE);
 				delete_tetri(map, what_is_tetri(tetri[n_tetri + 1]), SIZE);
 			}
 		}
