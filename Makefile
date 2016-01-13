@@ -14,21 +14,29 @@ NAME=fillit
 
 FLAG=-Wall -Wextra -Werror
 
-SRC= 1_main2.c error_buff.c line_column.c malloc.c print.c resolver.c \
+SRC= 	check.c\
+		check_error.c\
+		count.c\
+		line_column.c\
+		main.c\
+		malloc.c\
+		modif_table.c\
+		print.c\
+		resolver.c
 
 OBJ=$(SRC:.c=.o)
 
 $(NAME): 
 	gcc $(FLAG) -c $(SRC)
-	gcc $(OBJ) -L. -lft -o $(NAME)
+	gcc $(OBJ) -o $(NAME)
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

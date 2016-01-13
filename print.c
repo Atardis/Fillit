@@ -66,3 +66,17 @@ void		delete_tetri(char **map, int tetri, int size_map)
 		y++;
 	}
 }
+
+void		ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void		ft_putstr(char const *s)
+{
+	unsigned int i;
+
+	i = 0;
+	while (s[i])
+		ft_putchar(s[i++]);
+}

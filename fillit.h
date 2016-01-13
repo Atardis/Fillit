@@ -23,7 +23,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# include "../Libft/libft.h"
 # include "check.h"
 # include "count.h"
 # include "check_error.h"
