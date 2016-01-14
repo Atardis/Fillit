@@ -17,14 +17,13 @@ static int	ft_check_block_next(char *buff, int i, int line)
 	int j;
 
 	j = 0;
-	if ((i > 5) && buff[i - 5] && buff[i - 5] == '#' && buff[i] == '#')
+	if (line != 0 && buff[i - 5] && buff[i - 5] == '#')
 		j++;
-	if (buff[i - 1] && buff[i - 1] == '#' && buff[i] == '#')
+	if (buff[i - 1] && buff[i - 1] == '#')
 		j++;
-	if (buff[i + 1] && buff[i + 1] == '#' && buff[i] == '#')
+	if (buff[i + 1] && buff[i + 1] == '#')
 		j++;
-	if (buff[i + 5] && buff[i + 5] == '#' && buff[i] == '#' \
-			&& (ft_count_back(buff) - 1) != line)
+	if (buff[i + 5] && buff[i + 5] == '#' && line != 3)
 		j++;
 	return (j);
 }
@@ -33,32 +32,35 @@ int			ft_check_block(char *buff)
 {
 	int i;
 	int j;
-	int new;
+	int line;
 
 	i = 0;
 	while (buff[i])
 	{
 		j = 0;
-		new = 0;
-		while (new <= 4 && buff[i])
+		line = 0;
+		while (line < 5 && buff[i])
 		{
 			if (buff[i] == '\n')
-				new++;
-			j = j + ft_check_block_next(buff, i, new);
+				line++;
+			else if (buff[i] == '#')
+				j += ft_check_block_next(buff, i, line);
 			i++;
 		}
+		if (j < 5)
+			return (0);
 	}
 	if (count_tetri(buff) < 1 || count_tetri(buff) > 26)
 		return (0);
-	return (j);
+	return (1);
 }
 
 int			ft_check_twenty_one(char *buff)
 {
-	int		i;
+	int	i;
 
 	i = -1;
-	while(buff[i + 21])
+	while (buff[i += 21])
 		if (buff[i] != '\n')
 			return (0);
 	return (1);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fillit.h"
+#include "fillit.h"
 
 int				count_tetri(char *buff)
 {
@@ -50,7 +50,7 @@ static void		ft_error(char *argv)
 		ft_error_exit("error");
 	if (ft_count_char_sharp_line(buff) == 0)
 		ft_error_exit("error");
-	if (ft_check_block(buff) < 6)
+	if (!ft_check_block(buff))
 		ft_error_exit("error");
 	if (ft_tab_buff(buff) == NULL)
 		ft_error_exit("error");
@@ -62,6 +62,6 @@ int				main(int argc, char **argv)
 	if (argc == 2)
 		ft_error(argv[1]);
 	else if (argc != 2)
-		ft_error_exit("erreur");
+		ft_error_exit("error");
 	return (0);
 }

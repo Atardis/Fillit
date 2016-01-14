@@ -20,17 +20,12 @@ static void	ft_putchar(char c)
 void		ft_error_exit(char *str)
 {
 	int		i;
-	char	c;
 
-	i = 0;
-	while (str[i])
-	{
-		c = str[i];
-		write(1, &c, 5);
-		i++;
-	}
+	i = -1;
+	while (str[++i])
+		write(1, &str[i], 1);
 	write(1, "\n", 1);
-	exit(0);
+	exit(1);
 }
 
 void		ft_print_map(char **map, int size_map)
