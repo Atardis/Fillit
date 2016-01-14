@@ -52,3 +52,14 @@ int			ft_check_block(char *buff)
 		return (0);
 	return (j);
 }
+
+int			ft_check_twenty_one(char *buff)
+{
+	int		i;
+
+	i = -1;
+	while(buff[i + 21])
+		if (buff[i] != '\n')
+			return (0);
+	return (1);
+}

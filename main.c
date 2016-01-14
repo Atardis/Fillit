@@ -42,9 +42,9 @@ static void		ft_error(char *argv)
 	buff[read_result] = '\0';
 	if (close(file_descriptor) == -1)
 		ft_error_exit("error");
-	if (ft_count_enter(buff) == 0)
+	if (ft_count_enter(buff) == 0 || ft_check_twenty_one(buff) == 0)
 		ft_error_exit("error");
-	if (ft_count_char_tetri(buff) == 0)
+	if (ft_count_char_tetri(buff) == 0 || ((read_result + 1) % 21) != 0)
 		ft_error_exit("error");
 	if (ft_count_sharp(buff) == 0)
 		ft_error_exit("error");

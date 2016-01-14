@@ -24,6 +24,7 @@
 # include <stdlib.h>
 
 int			ft_check_block(char *buff);
+int			ft_check_twenty_one(char *buff);
 
 int			ft_count_sharp(char *buff);
 int			ft_count_enter(char *buff);
@@ -40,6 +41,7 @@ int			check_column(char **column, int x);
 int			what_is_tetri(char **tetri);
 
 int			count_tetri(char *buff);
+int			square_root(int n_tetri);
 
 int			size_map(char **map);
 char		**ft_creat_map(int size_map);

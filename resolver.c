@@ -39,7 +39,7 @@ void		ft_resolve(char ***tetri, int maxtetri)
 {
 	int size_map;
 
-	size_map = 1;
+	size_map = (square_root(maxtetri) - 1);
 	while (++size_map)
 		recursive(tetri, ft_creat_map(size_map), maxtetri, 0);
 }
