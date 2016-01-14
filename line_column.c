@@ -6,7 +6,7 @@
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 18:29:13 by gahubaul          #+#    #+#             */
-/*   Updated: 2016/01/06 18:29:15 by gahubaul         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:50:24 by rlemarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int		check_column(char **column, int x)
 	return (0);
 }
 
-int		ft_x_tetri_origin(char **tetri)
+int		what_is_tetri(char **tetri)
 {
-	int y_tetri;
-	int x_tetri;
+	int		y_tetri;
+	int		x_tetri;
 
 	y_tetri = 0;
 	while (y_tetri < 4)
@@ -51,28 +51,8 @@ int		ft_x_tetri_origin(char **tetri)
 		x_tetri = 0;
 		while (x_tetri < 4)
 		{
-			if (tetri[y_tetri][x_tetri] == TETRI)
-				return (x_tetri);
-			x_tetri++;
-		}
-		y_tetri++;
-	}
-	return (666);
-}
-
-int		ft_y_tetri_origin(char **tetri)
-{
-	int y_tetri;
-	int x_tetri;
-
-	y_tetri = 0;
-	while (y_tetri < 4)
-	{
-		x_tetri = 0;
-		while (x_tetri < 4)
-		{
-			if (tetri[y_tetri][x_tetri] == TETRI)
-				return (y_tetri);
+			if (tetri[y_tetri][x_tetri] != '.')
+				return (tetri[y_tetri][x_tetri]);
 			x_tetri++;
 		}
 		y_tetri++;

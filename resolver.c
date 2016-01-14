@@ -6,25 +6,16 @@
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 19:09:58 by gahubaul          #+#    #+#             */
-/*   Updated: 2016/01/05 19:10:02 by gahubaul         ###   ########.fr       */
+/*   Updated: 2016/01/14 17:04:03 by rlemarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_resolve(char ***tetri, int maxtetri)
+static void	recursive(char ***tetri, char **map, int maxtetri, int n_tetri)
 {
-	int size_map;
-
-	size_map = 1;
-	while (++size_map)
-		recursive(tetri, ft_creat_map(size_map), maxtetri, 0);
-}
-
-void	recursive(char ***tetri, char **map, int maxtetri, int n_tetri)
-{
-	int x_map;
-	int y_map;
+	int		x_map;
+	int		y_map;
 
 	y_map = -1;
 	while (++y_map < SIZE)
@@ -42,4 +33,13 @@ void	recursive(char ***tetri, char **map, int maxtetri, int n_tetri)
 			}
 		}
 	}
+}
+
+void		ft_resolve(char ***tetri, int maxtetri)
+{
+	int size_map;
+
+	size_map = 1;
+	while (++size_map)
+		recursive(tetri, ft_creat_map(size_map), maxtetri, 0);
 }

@@ -6,13 +6,13 @@
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:15:27 by gahubaul          #+#    #+#             */
-/*   Updated: 2015/12/10 16:15:30 by gahubaul         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:18:05 by rlemarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fillit.h"
 
-int			count_tetri(char *buff)
+int				count_tetri(char *buff)
 {
 	int		i;
 	int		count;
@@ -29,7 +29,7 @@ int			count_tetri(char *buff)
 	return (count);
 }
 
-void		ft_error(char *argv)
+static void		ft_error(char *argv)
 {
 	char	buff[BUFF_SIZE + 1];
 	int		file_descriptor;
@@ -57,7 +57,7 @@ void		ft_error(char *argv)
 	ft_resolve(ft_tab_buff(buff), count_tetri(buff));
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	if (argc == 2)
 		ft_error(argv[1]);

@@ -6,13 +6,53 @@
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 13:39:55 by gahubaul          #+#    #+#             */
-/*   Updated: 2016/01/07 13:39:57 by gahubaul         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:51:31 by rlemarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_full_map_point(char **map, int size)
+static int	ft_x_tetri_origin(char **tetri)
+{
+	int		y_tetri;
+	int		x_tetri;
+
+	y_tetri = 0;
+	while (y_tetri < 4)
+	{
+		x_tetri = 0;
+		while (x_tetri < 4)
+		{
+			if (tetri[y_tetri][x_tetri] == TETRI)
+				return (x_tetri);
+			x_tetri++;
+		}
+		y_tetri++;
+	}
+	return (666);
+}
+
+static int	ft_y_tetri_origin(char **tetri)
+{
+	int		y_tetri;
+	int		x_tetri;
+
+	y_tetri = 0;
+	while (y_tetri < 4)
+	{
+		x_tetri = 0;
+		while (x_tetri < 4)
+		{
+			if (tetri[y_tetri][x_tetri] == TETRI)
+				return (y_tetri);
+			x_tetri++;
+		}
+		y_tetri++;
+	}
+	return (666);
+}
+
+void		ft_full_map_point(char **map, int size)
 {
 	int y;
 	int x;
@@ -31,7 +71,7 @@ void	ft_full_map_point(char **map, int size)
 	}
 }
 
-int		add_tetri(char **map, int ym, int xm, char **tetri)
+int			add_tetri(char **map, int ym, int xm, char **tetri)
 {
 	int	yo;
 	int xo;
@@ -58,24 +98,4 @@ int		add_tetri(char **map, int ym, int xm, char **tetri)
 		}
 	}
 	return (1);
-}
-
-int		what_is_tetri(char **tetri)
-{
-	int y_tetri;
-	int x_tetri;
-
-	y_tetri = 0;
-	while (y_tetri < 4)
-	{
-		x_tetri = 0;
-		while (x_tetri < 4)
-		{
-			if (tetri[y_tetri][x_tetri] != '.')
-				return (tetri[y_tetri][x_tetri]);
-			x_tetri++;
-		}
-		y_tetri++;
-	}
-	return (666);
 }

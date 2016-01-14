@@ -6,11 +6,28 @@
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 16:40:02 by gahubaul          #+#    #+#             */
-/*   Updated: 2016/01/10 16:40:04 by gahubaul         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:06:22 by rlemarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static int	ft_check_block_next(char *buff, int i, int line)
+{
+	int j;
+
+	j = 0;
+	if ((i > 5) && buff[i - 5] && buff[i - 5] == '#' && buff[i] == '#')
+		j++;
+	if (buff[i - 1] && buff[i - 1] == '#' && buff[i] == '#')
+		j++;
+	if (buff[i + 1] && buff[i + 1] == '#' && buff[i] == '#')
+		j++;
+	if (buff[i + 5] && buff[i + 5] == '#' && buff[i] == '#' \
+			&& (ft_count_back(buff) - 1) != line)
+		j++;
+	return (j);
+}
 
 int			ft_check_block(char *buff)
 {
@@ -33,22 +50,5 @@ int			ft_check_block(char *buff)
 	}
 	if (count_tetri(buff) < 1 || count_tetri(buff) > 26)
 		return (0);
-	return (j);
-}
-
-int			ft_check_block_next(char *buff, int i, int line)
-{
-	int j;
-
-	j = 0;
-	if ((i > 5) && buff[i - 5] && buff[i - 5] == '#' && buff[i] == '#')
-		j++;
-	if (buff[i - 1] && buff[i - 1] == '#' && buff[i] == '#')
-		j++;
-	if (buff[i + 1] && buff[i + 1] == '#' && buff[i] == '#')
-		j++;
-	if (buff[i + 5] && buff[i + 5] == '#' && buff[i] == '#' \
-		&& (ft_count_back(buff) - 1) != line)
-		j++;
 	return (j);
 }

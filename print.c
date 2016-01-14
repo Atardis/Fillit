@@ -6,11 +6,16 @@
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:12:33 by gahubaul          #+#    #+#             */
-/*   Updated: 2016/01/07 14:12:37 by gahubaul         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:58:26 by rlemarch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void		ft_error_exit(char *str)
 {
@@ -65,9 +70,4 @@ void		delete_tetri(char **map, int tetri, int size_map)
 		}
 		y++;
 	}
-}
-
-void		ft_putchar(char c)
-{
-	write(1, &c, 1);
 }
