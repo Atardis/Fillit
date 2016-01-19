@@ -86,7 +86,7 @@ int			add_tetri(char **map, int ym, int xm, char **tetri)
 		xt = -1;
 		while (++xt < 4)
 		{
-			if (tetri[yt][xt] != '.' && tetri[yt][xt])
+			if (tetri[yt][xt] == TETRI && tetri[yt][xt])
 			{
 				if (Y >= SIZE || X >= SIZE || map[Y][X] != '.')
 				{

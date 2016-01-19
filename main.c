@@ -40,15 +40,13 @@ static void		ft_error(char *argv)
 	if ((read_result = read(file_descriptor, buff, BUFF_SIZE)) == -1)
 		ft_error_exit("error");
 	buff[read_result] = '\0';
-	if (close(file_descriptor) == -1)
+	if (close(file_descriptor) == -1 || count_tetri(buff) > 26)
 		ft_error_exit("error");
 	if (ft_count_enter(buff) == 0 || ft_check_twenty_one(buff) == 0)
 		ft_error_exit("error");
 	if (ft_count_char_tetri(buff) == 0 || ((read_result + 1) % 21) != 0)
 		ft_error_exit("error");
-	if (ft_count_sharp(buff) == 0)
-		ft_error_exit("error");
-	if (ft_count_char_sharp_line(buff) == 0)
+	if (ft_count_sharp(buff) == 0 || ft_count_char_sharp_line(buff) == 0)
 		ft_error_exit("error");
 	if (!ft_check_block(buff))
 		ft_error_exit("error");
