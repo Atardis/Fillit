@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void			check_point_to_line(char *buff)
+static void			check_point_to_line(char *buff)
 {
 	int		i;
 	int		j;
@@ -32,7 +32,7 @@ void			check_point_to_line(char *buff)
 	}
 }
 
-void			ft_verif_line(char *buff)
+static void			ft_verif_line(char *buff)
 {
 	int			i;
 	int			line;
@@ -54,7 +54,7 @@ void			ft_verif_line(char *buff)
 	}
 }
 
-void			check_error_buff(char *buff)
+void				check_error_buff(char *buff)
 {
 	int		i;
 

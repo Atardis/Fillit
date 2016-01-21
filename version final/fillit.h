@@ -26,9 +26,6 @@
 void			ft_check_block(char *buff);
 
 void			check_error_buff(char *buff);
-void			check_point_to_line(char *buff);
-void			ft_verif_line(char *buff);
-void			ft_verif_sharp(char *buff);
 
 int				ft_count_back(char *buff);
 int				square_root(int n_tetri);

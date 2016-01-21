@@ -52,14 +52,3 @@ int			square_root(int n_tetri)
 		return (11);
 	return (0);
 }
-
-int			ft_check_twenty_one(char *buff)
-{
-	int	i;
-
-	i = -1;
-	while (buff[i += 21])
-		if (buff[i] != '\n')
-			return (0);
-	return (1);
-}
