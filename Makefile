@@ -10,35 +10,43 @@
 #                                                                              #
 # **************************************************************************** #
 
+
+RED=\033[31m
+NORMAL=\033[0m
+YELLOW=\033[33m
+
 NAME=fillit
 
 FLAG=-Wall -Wextra -Werror
 
-SRC= 	check_block.c\
-		check_error.c\
-		count.c\
-		line_column.c\
-		main.c\
-		malloc.c\
-		modif_table.c\
-		print.c\
-		resolver.c
+SRC= 	src/check_block.c\
+		src/check_error.c\
+		src/count.c\
+		src/line_column.c\
+		src/main.c\
+		src/malloc.c\
+		src/modif_table.c\
+		src/print.c\
+		src/resolver.c
 
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
+	@printf "\r${YELLOW}all${NORMAL}\t=> done\n"
 
 $(NAME): $(OBJ)
-	gcc $(OBJ) -o $(NAME)
+	@gcc $(OBJ) -o $(NAME)
 
 %.o: %.c
 	@gcc $(FLAG) -o $@ -c $^
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@printf "\r${RED}clean${NORMAL}\t=> done\n"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@printf "\r${RED}fclean${NORMAL}\t=> done\n"
 
 re: fclean all
 
